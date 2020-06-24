@@ -149,7 +149,7 @@ resource "aws_cloudfront_distribution" "main-lambda-edge" {
 
   aliases = concat([var.fqdn], var.aliases)
 
-  price_class = "PriceClass_100"
+  price_class = var.cloudfront_price_class
 
   default_cache_behavior {
     target_origin_id = "origin-${var.fqdn}"
