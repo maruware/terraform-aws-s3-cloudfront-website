@@ -82,7 +82,8 @@ resource "aws_cloudfront_distribution" "main" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = var.geo_restriction_type
+      locations = var.geo_restriction_locations
     }
   }
 
@@ -182,7 +183,8 @@ resource "aws_cloudfront_distribution" "main-lambda-edge" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = var.geo_restriction_type
+      locations = var.geo_restriction_locations
     }
   }
 

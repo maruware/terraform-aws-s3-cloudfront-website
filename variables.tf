@@ -100,3 +100,13 @@ variable "single_page_application" {
   default = false
   type = bool
 }
+
+variable "geo_restriction_type" {
+  default = "none"
+  type = string
+}
+
+variable "geo_restriction_locations" {
+  type        = list(string)
+  default = []
+}
