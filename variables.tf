@@ -68,6 +68,12 @@ variable "error_response_code" {
   default     = "404"
 }
 
+variable "forwarded_headers" {
+  type        = list(string)
+  description = "CloudFront forwarded headers"
+  default     = []
+}
+
 variable "spa_error_response_code" {
   type        = string
   description = "Response code to send on 404 for a single page application"

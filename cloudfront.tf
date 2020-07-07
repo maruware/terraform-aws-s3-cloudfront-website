@@ -69,6 +69,8 @@ resource "aws_cloudfront_distribution" "main" {
     forwarded_values {
       query_string = false
 
+      headers = var.forwarded_headers
+
       cookies {
         forward = "none"
       }
@@ -159,6 +161,8 @@ resource "aws_cloudfront_distribution" "main-lambda-edge" {
 
     forwarded_values {
       query_string = false
+
+      headers = var.forwarded_headers
 
       cookies {
         forward = "none"
