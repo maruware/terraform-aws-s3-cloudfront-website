@@ -12,6 +12,18 @@ resource "aws_s3_bucket" "main" {
 
   force_destroy = var.force_destroy
 
+  dynamic "cors_rule" {
+    for_each = var.s3_cors
+
+    content {
+      allowed_methods = cors_rule.value.allowed_methods
+      allowed_origins = cors_rule.value.allowed_origins
+      allowed_headers = lookup(cors_rule.value, "allowed_headers", null)
+      expose_headers  = lookup(cors_rule.value, "expose_headers", null)
+      max_age_seconds = lookup(cors_rule.value, "max_age_seconds", null)
+    }
+  }
+
   tags = merge(
     var.tags,
     {

@@ -116,3 +116,9 @@ variable "geo_restriction_locations" {
   type        = list(string)
   default = []
 }
+
+variable "s3_cors" {
+  description = "List of maps containing rules for Cross-Origin Resource Sharing."
+  type        = any
+  default     = []
+}
